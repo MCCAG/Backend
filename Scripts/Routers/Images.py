@@ -16,7 +16,7 @@ async def query(image_id: ImageId) -> dict:
     """
     通过头像 id 获取头像。
     """
-    if head_image := await image_collection.find_one({'_id': image_id}, {'background': 1, 'image': 1}):
+    if head_image := image_collection.find_one({'_id': image_id}, {'background': 1, 'image': 1}):
         return {'success': True, 'data': dict(head_image)}
     return {'success': False, 'message': '未找到头像！请确认头像 ID 是否正确。'}
 

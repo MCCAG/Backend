@@ -58,10 +58,10 @@ async def generate(player: str, avatar_type: Literal['big_head', 'full', 'head']
         return {'success': False, 'message': '抓取皮肤失败！请稍后再试。'}
 
     image_id = generate_id(player, avatar_type, website if website else 'Mojang')
-    if record := await cache_collection.find_one({'_id': image_id}, {'image': 1}):
+    if record := cache_collection.find_one({'_id': image_id}, {'image': 1}):
         return {'success': True, 'data': record['image']}
 
     head_image = render(avatar, avatar_type)
     head_image = b64encode(head_image.getvalue()).decode()
-    await cache_collection.insert_one({'_id': image_id, 'image': head_image, 'time': int(time())})
+    cache_collection.insert_one({'_id': image_id, 'image': head_image, 'time': int(time())})
     return {'success': True, 'data': {'image': head_image, 'id': image_id}}
