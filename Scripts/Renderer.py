@@ -4,8 +4,8 @@ from json import loads
 from typing import Literal
 from PIL import Image, ImageFilter, ImageOps
 
-# operation_path = Path('Data/Operations.json')
-operation_path = Path('../Data/Operations.json')
+operation_path = Path('Data/Operations.json')
+# operation_path = Path('../Data/Operations.json')
 operation_data = loads(operation_path.read_text('Utf-8'))
 
 
