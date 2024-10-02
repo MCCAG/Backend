@@ -1,4 +1,4 @@
-from typing import Annotated, Literal
+from typing import Annotated, Optional, Literal
 from pydantic import Base64Str, BaseModel, HttpUrl
 from fastapi import Query
 
@@ -15,5 +15,5 @@ class GenerateImageRequest(BaseModel):
 
 class GenerateAccountRequest(BaseModel):
     player: Player
-    website: Website = None
+    website: Optional[Website] = None
     avatar_type: Literal['big_head', 'full', 'head']
