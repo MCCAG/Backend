@@ -2,7 +2,7 @@
 
 # 🥰 MCCAG API
 
-<img src="./assets/logo.png" alt="MCCAG Logo">
+<img src="https://github.com/Natsusomekeishi/MCCAG/blob/main/static/logo.png" alt="MCCAG Logo">
 
 _Minecraft Cute Avatar Generator_  
 _MC可爱头像生成器_
