@@ -54,7 +54,7 @@ async def generate(request: GenerateAccountRequest) -> dict:
 
     image_id = generate_id(request.player, request.avatar_type, request.website if request.website else 'Mojang')
     if record := cache_collection.find_one({'_id': image_id}, {'image': 1}):
-        return {'success': True, 'data': record['image']}
+        return {'success': True, 'data': {'image': record['image'], 'id': image_id}}
 
     head_image = render(avatar, request.avatar_type)
     head_image = b64encode(head_image.getvalue()).decode()
