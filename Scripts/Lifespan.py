@@ -17,8 +17,8 @@ async def timer():
         now_time = int(time())
         for cache_image in cache_collection.find():
             if (now_time - cache_image['time']) > 600:
-                await cache_collection.delete_one({'_id': cache_image['_id']})
+                cache_collection.delete_one({'_id': cache_image['_id']})
         for head_image in image_collection.find():
             if (now_time - head_image['time']) > 1209600:
-                await image_collection.delete_one({'_id': head_image['_id']})
+                image_collection.delete_one({'_id': head_image['_id']})
         await asyncio.sleep(600)
